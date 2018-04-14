@@ -21,9 +21,16 @@ import string
 def checkio(text):
     text = [x.lower() for x in list(text) if x in string.ascii_letters]
     text = sorted(text)
-    a = max(text, key=text.count)
+    a = max(text, key=text.count)  # BAD! Count text*text
     return a
 
+
+"""
+The fastest solution
+def checkio(text):
+    text = text.lower()
+    return max(string.ascii_lowercase, key=text.count)
+"""
 
 if __name__ == '__main__':
     # These "asserts" using only for self-checking
