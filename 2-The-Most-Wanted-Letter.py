@@ -18,14 +18,21 @@
 import string
 
 
-import string
 def checkio(text):
-    text = list(text)
-    for letter in text:
-        if letter.lower() not in string.ascii_lowercase:
-            text.remove(letter)
-            
-    print(text)
-            
+    text = [x.lower() for x in list(text) if x in string.ascii_letters]
+    text = sorted(text)
+    a = max(text, key=text.count)
+    return a
 
-checkio('dskpokpoo899jij  ioni iojio pooo123d')
+
+if __name__ == '__main__':
+    # These "asserts" using only for self-checking
+    assert checkio("Hello World!") == "l", "Hello test"
+    assert checkio("How do you do?") == "o", "O is most wanted"
+    assert checkio("One") == "e", "All letter only once."
+    assert checkio("Oops!") == "o", "Don't forget about lower case."
+    assert checkio("AAaooo!!!!") == "a", "Only letters."
+    assert checkio("abe") == "a", "The First."
+    print("Start the long test")
+    assert checkio("a" * 9000 + "b" * 1000) == "a", "Long."
+    print("The local tests are done.")
