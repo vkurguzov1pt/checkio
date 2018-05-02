@@ -5,26 +5,23 @@ Make sure to return "X" if the X-player wins and "O" if the O-player wins.
 If the game is a draw, return "D".
 '''
 
-
 def checkio(game_result):
+    result_dict = {'XXX':'X', 'OOO':'O'}
     result = ''
     # Define length of a row
     theLength = len(game_result[0])
     for row in game_result:
-        if 'XXX' in row:
-            result = 'X'
-        elif 'OOO' in row:
-            result = 'O'
+        result = result_dict[row] if row in result_dict else ''
     # If no result reverse the rows
     if result == '':
         sReversed = ''
         for i in range(theLength):
             for row in game_result:
                 sReversed += row[i]
-            if 'XXX' in sReversed:
-                result = 'X'
-            elif 'OOO' in sReversed:
-                result = 'O'
+                if 'XXX' in sReversed:
+                    result = 'X'
+                elif 'OOO' in sReversed:
+                    result = 'O'
             else:
                 sReversed = ''
     # If still no result check diagonal
