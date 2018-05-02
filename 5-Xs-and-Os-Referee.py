@@ -6,7 +6,7 @@ If the game is a draw, return "D".
 '''
 
 def checkio(game_result):
-    result_dict = {'XXX':'X', 'OOO':'O'}
+    result_dict = { 'XXX':'X', 'OOO':'O' }
     result = ''
     # Define length of a row
     theLength = len(game_result[0])
